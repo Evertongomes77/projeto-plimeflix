@@ -1,0 +1,55 @@
+.detalhes{
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    background-color: black;
+    flex-direction: column;
+}
+
+.detalhes h1{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.detalhes span{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.detalhes p{
+   max-width: 600px;
+   color: white;
+}
+
+.detalhes img{
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link a{
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.link button{
+    background-color: red;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: white;
+    cursor:  pointer;
+}
