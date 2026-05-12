@@ -1,10 +1,10 @@
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
-import Home from './Home/home'
-import Detalhes from './pages/Datalhes/detalhes'
-import Favoritos from './pages/Favoritos/favoritos'
+import Home from './pages/Home/home'
+import Detalhes from './pages/detalhes-filme'
 import Erro from './pages/Erro/Erro'
-import Header from './header/header'
+import Header from './components/header/header'
+import Filmessalvos from './pages/filmes-salvos'
 
 function Rotas(){
     return(
@@ -12,8 +12,8 @@ function Rotas(){
         <Header/>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/detalhes/:id' element={<Detalhes/>}/>
-            <Route path='/favoritos' element={<Favoritos/>}/>
+            <Route path='/detalhes/:type/:id' element={<Detalhes/>}/>
+            <Route path='/meusfilmes' element={<Filmessalvos/>}/>
 
             <Route path='*' element={<Erro/>}/>
         </Routes>
