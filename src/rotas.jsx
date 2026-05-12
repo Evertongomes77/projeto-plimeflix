@@ -3,7 +3,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './pages/Home/home'
 import Detalhes from './pages/detalhes-filme'
 import Erro from './pages/Erro/Erro'
-import Header from './components/header/header'
+import Header from './components/header'
 import Filmessalvos from './pages/filmes-salvos'
 
 function Rotas(){
