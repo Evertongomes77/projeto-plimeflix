@@ -4,7 +4,7 @@ import Home from './pages/Home/home'
 import Detalhes from './pages/detalhes-filme'
 import Erro from './pages/Erro/Erro'
 import Header from './components/header'
-import Filmessalvos from './pages/filmes-salvos'
+import Favoritossalvos from './pages/favoritos-salvos'
 
 function Rotas(){
     return(
@@ -13,7 +13,7 @@ function Rotas(){
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/detalhes/:type/:id' element={<Detalhes/>}/>
-            <Route path='/meusfilmes' element={<Filmessalvos/>}/>
+            <Route path='/meusfilmes' element={<Favoritossalvos/>}/>
 
             <Route path='*' element={<Erro/>}/>
         </Routes>

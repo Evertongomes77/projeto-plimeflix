@@ -5,23 +5,23 @@ import { Link, useParams } from "react-router-dom";
 
 
 
-function Filmessalvos() {
+function Favoritossalvos() {
     const [filmes, setfilmes] = useState([]);
 
 
-    function filmessalvos() {
-        const data = JSON.parse(localStorage.getItem('@filmes'))
+    function buscarfavoritos() {
+        const data = JSON.parse(localStorage.getItem('@filmes')) || []
         setfilmes(data)
     }
 
     function excluirfavorito(id){
         const excluir= filmes.filter((item)=>item.id!==id)
         setfilmes(excluir)
-        localStorage.setItem('@filmes',JSON.stringify(filmes))
+        localStorage.setItem('@filmes',JSON.stringify(excluir))
     }
 
     useEffect(() => {
-        filmessalvos();
+        buscarfavoritos();
     }, []);
     return (
         <Container>
@@ -39,4 +39,4 @@ function Filmessalvos() {
     )
 }
 
-export default Filmessalvos;
+export default Favoritossalvos;

@@ -33,7 +33,7 @@ grid-template-columns:repeat(7,7fr);
 `
 
 export const Container= styled.div`
-width: 100%;
+width: 100vw;
 min-height: 100vh;
 height: 100%;
 background: radial-gradient(circle at top, #312e81, #0f172a 80%);

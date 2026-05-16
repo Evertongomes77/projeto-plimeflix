@@ -7,7 +7,7 @@ function Header(){
     return(
         <Container>
            <Link to={'/'}> <h1>Primeflix</h1> </Link>
-           <Link to={'/meusfilmes'}><button>Meus filmes</button> </Link> 
+           <Link to={'/meusfilmes'}><button>Meus favoritos</button> </Link> 
         </Container>
     )
 }
