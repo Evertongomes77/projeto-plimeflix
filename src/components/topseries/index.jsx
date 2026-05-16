@@ -23,8 +23,9 @@ function Topseries() {
         <Container>
             <h1>Séries</h1>
             <Swiper
-                spaceBetween={10}
-                slidesPerView={5}
+                spaceBetween={30}
+                slidesPerView={'auto'}
+                grabCursor={true}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,

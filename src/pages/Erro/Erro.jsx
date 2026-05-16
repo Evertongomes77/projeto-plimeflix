@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { Container } from "./style";
 
 function Erro(){
     return(
-        <div>
+        <Container>
             <h1>ops parece que essa página não existe</h1>
-            <Link to='/'>ir para Home</Link>
-        </div>
+            <Link to='/'><button>Voltar para Home</button></Link>
+        </Container>
     )
 }
 export default Erro;

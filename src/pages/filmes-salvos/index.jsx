@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import baseimage from "../../utils/baseimage";
-import { Container, Conteudo, Filmes } from "./stle";
+import { Container, Conteudo, Filmes,Conteudofilme } from "./stle";
 import { Link, useParams } from "react-router-dom";
 
 
@@ -24,9 +24,9 @@ function Filmessalvos() {
         filmessalvos();
     }, []);
     return (
-        <>
+        <Container>
             <Filmes>Meus filmes</Filmes>
-            <Container>
+            <Conteudofilme>
                 {filmes.map((item) => (
                     <Conteudo key={item.id}>
                         <Link to={`/detalhes/${item.number_of_seasons ? `tv/${item.id}` : `movie/${item.id}`}`}><img src={baseimage + item.poster_path} alt={item.title} /></Link>
@@ -34,8 +34,8 @@ function Filmessalvos() {
                         <button onClick={()=>excluirfavorito(item.id)}>Excluir</button>
                     </Conteudo>
                 ))}
-            </Container>
-        </>
+            </Conteudofilme>
+        </Container>
     )
 }
 

@@ -4,6 +4,7 @@ import api from "../../services/api";
 import baseimage from "../../utils/baseimage";
 import { Container, Divbuttons, Divsobre } from "./style";
 import { Button } from "../../components/botao/style";
+import { Containerload } from "../../utils/styleload/style";
 
 
 function Detalhes() {
@@ -35,9 +36,9 @@ function Detalhes() {
 
     if(load){
         return(
-            <div>
+            <Containerload>
                 <h1>Carregando.....</h1>
-            </div>
+            </Containerload>
         )
     }
 

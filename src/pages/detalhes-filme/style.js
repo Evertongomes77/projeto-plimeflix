@@ -6,9 +6,9 @@ export const Container= styled.div`
 width: 100vw;
 height: calc(100vh - 60px);
 display: flex;
-flex-direction: column;
 align-items: center;
-background-color: black;
+flex-direction: column;
+background: radial-gradient(circle at top, #312e81, #0f172a 80%);
 
 img{
     width: 600px;
