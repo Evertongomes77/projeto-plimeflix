@@ -15,7 +15,13 @@ img{
     height: 400px;
     border-radius: 20px;
     margin: 10px;
-    @media(max-width: 650px){
+    transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(59,130,246,0.6);
+    @media(max-width: 1030px){
+        width: 450px;
+        height: 300px;
+    }
+    @media(max-width: 490px){
         width: 300px;
         height: 200px;
     }
@@ -45,6 +51,12 @@ p{
     color: white;
     margin: 20px;
     @media(max-width: 770px){
+        font-size: 15px;
+    }
+    @media(max-width: 1030px){
+        font-size: 18px;
+    }
+    @media(max-width:650px){
         font-size: 15px;
     }
 }

@@ -25,21 +25,24 @@ function Topfilmes() {
             <h1>Filmes</h1>
             <Swiper
                 spaceBetween={30}
-                slidesPerView={'auto'}
+                slidesPerView={5}
                 grabCursor={true}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
                     },
-                    440:{
+                    453:{
                         slidesPerView:2
                     },
                     768: {
                         slidesPerView: 3,
                     },
-                    1024: {
-                        slidesPerView: 5,
+                    970: {
+                        slidesPerView: 4,
                     },
+                    1230:{
+                        slidesPerView: 5,
+                    }
                 }}
             >
                 {filmes.map((item) => (
