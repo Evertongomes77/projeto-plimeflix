@@ -1,13 +1,14 @@
-
+import { Container } from "./style";
+import { Link } from "react-router-dom";
 
 
 function Header(){
 
     return(
-        <div>
-            <h1>Primeflix</h1>
-            <p>Meus filmes</p>
-        </div>
+        <Container>
+           <Link to={'/'}> <h1>Primeflix</h1> </Link>
+           <Link to={'/meusfilmes'}><button>Meus filmes</button> </Link> 
+        </Container>
     )
 }
 

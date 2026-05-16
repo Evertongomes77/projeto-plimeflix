@@ -8,24 +8,45 @@ height: calc(100vh - 60px);
 display: flex;
 flex-direction: column;
 align-items: center;
+background-color: black;
 
 img{
-    width: 700px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
     border-radius: 20px;
     margin: 10px;
+    @media(max-width: 650px){
+        width: 300px;
+        height: 200px;
+    }
+}
+h1{
+    font-size: 30px;
+    margin: 20px;
+    color: white;
+    font-weight: bold;
 }
 `
 
 
 export const Divsobre= styled.div`
-width: 50%;
+width: 80%;
 display: flex;
 align-items: center;
 justify-content: center;
+@media(max-width: 770px){
+    width: 100%;
+    padding: 0 20px ;
+}
+
 p{
     font-size: 20px;
     font-weight: bold;
+    color: white;
+    margin: 20px;
+    @media(max-width: 770px){
+        font-size: 15px;
+    }
 }
 `
 
@@ -35,5 +56,5 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 20px;
-margin: 10px;
+margin-bottom: 10px;
 `

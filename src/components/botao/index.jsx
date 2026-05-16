@@ -1,9 +1,10 @@
+import { Button } from "./style";
 
     function Botao({Children,...props}){
 
     return(
         <div>
-            <button {...props}>{Children}</button>
+            <Button {...props}>{Children}</Button>
         </div>
     )
 }

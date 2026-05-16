@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import baseimage from "../../utils/baseimage";
 import { Container, Divbuttons, Divsobre } from "./style";
-import Botao from "../../components/botao";
+import { Button } from "../../components/botao/style";
 
 
 function Detalhes() {
     const {type,id} = useParams()
-    const [filmes, setfilme] = useState({});
+    const [filme, setfilme] = useState({});
     const [load,setload]= useState(true)
 
     async function detalhes() {
@@ -18,9 +18,17 @@ function Detalhes() {
     }
 
     function salvarfilme(){
-        localStorage.setItem('@filmes',JSON.stringify(filmes));
+        const filmessalvos= JSON.parse(localStorage.getItem('@filmes')) || [];
+        const filmesJaSalvos= filmessalvos.filter((item)=> item.id===filme.id);
+        if(filmesJaSalvos.length>0){
+            alert('filme já salvo')
+        }
+        else{
+            filmessalvos.push(filme)
+            localStorage.setItem('@filmes',JSON.stringify(filmessalvos))
+            alert('filme salvo com sucesso!')
+        }
     }
-
     useEffect(() => {
         detalhes();
     }, []);
@@ -35,14 +43,14 @@ function Detalhes() {
 
     return (
         <Container>
-            <h1>{type==='movie'? filmes.title : filmes.name}</h1>
-            <img src={baseimage+filmes.backdrop_path} alt="" />
+            <h1>{type==='movie'? filme.title : filme.name}</h1>
+            <img src={baseimage+filme.backdrop_path} alt="" />
             <Divsobre>
-            <p>{filmes.overview}</p>
+            <p>{filme.overview}</p>
             </Divsobre>
             <Divbuttons>
-                <a href={`https://www.youtube.com/results?search_query=${type==='movie'? filmes.title : filmes.name} trailer`} target="_blank" rel="external"><Botao>Ver trailer</Botao></a>
-                <Botao color='secundaria' onClick={salvarfilme}>Salvar filme</Botao>
+                <a href={`https://www.youtube.com/results?search_query=${type==='movie'? filme.title : filme.name} trailer`} target="_blank" rel="external"><Button color={'primaria'}>Ver trailer</Button></a>
+                <Button onClick={salvarfilme}>Salvar filme</Button>
             </Divbuttons>
         </Container>
     )

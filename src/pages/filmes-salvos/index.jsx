@@ -1,12 +1,41 @@
+import { useState, useEffect } from "react";
+import baseimage from "../../utils/baseimage";
+import { Container, Conteudo, Filmes } from "./stle";
+import { Link, useParams } from "react-router-dom";
 
 
 
-function Filmessalvos(){
+function Filmessalvos() {
+    const [filmes, setfilmes] = useState([]);
 
-    return(
-        <div>
-            <h1>Página filmes salvos</h1>
-        </div>
+
+    function filmessalvos() {
+        const data = JSON.parse(localStorage.getItem('@filmes'))
+        setfilmes(data)
+    }
+
+    function excluirfavorito(id){
+        const excluir= filmes.filter((item)=>item.id!==id)
+        setfilmes(excluir)
+        localStorage.setItem('@filmes',JSON.stringify(filmes))
+    }
+
+    useEffect(() => {
+        filmessalvos();
+    }, []);
+    return (
+        <>
+            <Filmes>Meus filmes</Filmes>
+            <Container>
+                {filmes.map((item) => (
+                    <Conteudo key={item.id}>
+                        <Link to={`/detalhes/${item.number_of_seasons ? `tv/${item.id}` : `movie/${item.id}`}`}><img src={baseimage + item.poster_path} alt={item.title} /></Link>
+                        <p>{item.number_of_seasons ? item.name : item.title}</p>
+                        <button onClick={()=>excluirfavorito(item.id)}>Excluir</button>
+                    </Conteudo>
+                ))}
+            </Container>
+        </>
     )
 }
 

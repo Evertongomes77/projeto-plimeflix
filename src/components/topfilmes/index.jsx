@@ -1,8 +1,10 @@
 import api from "../../services/api"
 import baseimage from "../../utils/baseimage";
 import { useEffect, useState } from "react"
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import 'swiper/css'
+import { Container, Slide } from "./style";
+import { Link } from "react-router-dom";
 
 
 function Topfilmes() {
@@ -12,7 +14,6 @@ function Topfilmes() {
     async function buscarfilmes() {
         const data = await api.get('/movie/popular');
         setfilmes(data.data.results);
-        console.log(data.data.results)
     }
 
     useEffect(() => {
@@ -20,19 +21,35 @@ function Topfilmes() {
     }, []);
 
     return (
-        <div>
+        <Container>
+            <h1>Filmes</h1>
             <Swiper
-            spaceBetween={20}
-            slidesPerView={5}
+                spaceBetween={30}
+                slidesPerView={'auto'}
+                grabCursor={true}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    440:{
+                        slidesPerView:2
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                    },
+                }}
             >
                 {filmes.map((item) => (
-                    <SwiperSlide key={item.id}>
-                        <img src={baseimage + item.poster_path} alt={item.title} />
+                    <Slide key={item.id}>
+                        <Link to={`/detalhes/movie/${item.id}`}><img src={baseimage + item.poster_path} alt={item.title} /></Link>
                         <p>{item.title}</p>
-                    </SwiperSlide>
+                    </Slide>
                 ))}
             </Swiper>
-        </div>
+        </Container>
     )
 }
 
